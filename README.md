@@ -1,5 +1,5 @@
 # Ansible Playbooks
-Inventory of playbooks and examples used to manage the day to day operational tasks of installing and configuring DataStax Enterprise software suite using package install method.
+Inventory of playbooks and examples used to manage the day-to-day operational tasks of installing and configuring DataStax Enterprise software suite using package install method.
 
 At end of this exercise, we would have installed the following,
 * DSE `6.8.3` cluster with two datacenters
