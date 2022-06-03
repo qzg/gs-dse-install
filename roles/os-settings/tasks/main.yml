@@ -4,12 +4,13 @@
 
 - name: creating UNIX group
   group: name={{ creds.service_user }}
-  when: service_user_dir.stat.isdir is defined and service_user_dir.stat.isdir
+  #when: service_user_dir.stat.isdir is not defined 
+  #when: not service_user_dir.stat.isdir is defined and service_user_dir.stat.isdir
 
 - name: creating UNIX user
   user: name={{ creds.service_user }} comment="DSE service user" uid=8500 group={{ creds.service_user }}
-  when: service_user_dir.stat.isdir is defined and service_user_dir.stat.isdir
-  ignore_errors: true
+  #when: service_user_dir.stat.isdir is defined and service_user_dir.stat.isdir
+  #ignore_errors: true
   # The ignore_errors is added purposefully if the service user already exists
 
 - name: Updating pam_limits such as memlock, nofile, nprox & as values - package install
