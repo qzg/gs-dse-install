@@ -14,7 +14,7 @@ dse_install_type: package
 #
 # Usernames and Credentials
 creds:
-  remote_user: dseadmin
+  remote_user: ec2-user
   service_user: dseadmin
 
 #
