@@ -3,7 +3,7 @@
 
 - name: installing some useful packages like ntp, curl, vim, sysstat, etc.,
   yum: 
-    name: ['ntp', 'curl', 'vim', 'sysstat', 'jna', 'redhat-lsb-core']
+    name: ['chrony', 'curl', 'vim', 'sysstat', 'jna', 'redhat-lsb-core']
     # skipping 'libjna-java', 'python-software-properties'
     state: present 
     update_cache: yes
