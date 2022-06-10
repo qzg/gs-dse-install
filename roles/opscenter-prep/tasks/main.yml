@@ -5,11 +5,11 @@
     name: opscenter
     description: DataStax Repo for DataStax OpsCenter and Agent
     baseurl: https://rpm.datastax.com/enterprise/
-    username: "{{ dse_download_username }}"
-    password: "{{ dse_download_password }}"
+    #username: "{{ dse_download_username }}"
+    #password: "{{ dse_download_password }}"
     gpgcheck: true
     gpgkey: https://rpm.datastax.com/rpm/repo_key
-    enabled: false
+    #enabled: false
   when: dse_install_type == 'package'
 
 - name: Install DataStax OpsCenter for package install
@@ -17,15 +17,14 @@
     name: "opscenter-{{ opscenter.active_version }}"
     enablerepo: opscenter
     state: installed
-  when:
-    - dse_install_type == 'package'
-    - dse_install_via == 'online'
+  when: dse_install_type == 'package'
+    #- dse_install_via == 'online'
   
 # Download https://rpm.datastax.com/enterprise/noarch/opscenter-6.7.4-1.noarch.rpm
 # and place it at /tmp directory prior to running this playbook
-- name: Installa DataStax OpsCenter for offline package installation using previously downloaded RPM file
-  shell: |
-    rpm -i "{{ dse_download_local_path }}/opscenter-{{ opscenter.active_version }}-1.noarch.rpm"
-  args:
-    warn: false
-  when: dse_install_via == 'offline'
+#- name: Installa DataStax OpsCenter for offline package installation using previously downloaded RPM file
+  #shell: |
+    #rpm -i "{{ dse_download_local_path }}/opscenter-{{ opscenter.active_version }}-1.noarch.rpm"
+  #args:
+    #warn: false
+  #when: dse_install_via == 'offline'

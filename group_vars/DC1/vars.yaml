@@ -19,7 +19,7 @@ dse_download_username:
 dse_download_password:
 dse_download_local_path: /tmp
 
-dse_version: 6.8.2
+dse_version: 6.8.23
 
 #cassandra-rackdc.properties
 dse_datacenter: dc1

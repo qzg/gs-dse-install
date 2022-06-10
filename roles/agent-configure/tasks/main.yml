@@ -4,27 +4,27 @@
     name: opscenter
     description: DataStax Repo for DataStax Agent
     baseurl: https://rpm.datastax.com/enterprise/
-    username: "{{ dse_download_username }}"
-    password: "{{ dse_download_password }}"
+    #username: "{{ dse_download_username }}"
+    #password: "{{ dse_download_password }}"
     gpgcheck: true
     gpgkey: https://rpm.datastax.com/rpm/repo_key
-    enabled: false
+    #enabled: false
 
 - name: Install DataStax Agent
   yum:
-    name: "datastax-agent-{{ dse_version }}-1"
+    name: "datastax-agent-{{ agent.active_version }}-1"
     enablerepo: opscenter
     state: installed
-  when: dse_install_via == 'online'
+  #when: dse_install_via == 'online'
 
 # Download https://rpm.datastax.com/enterprise/noarch/datastax-agent-6.7.4-1.noarch.rpm
 # and place it at /tmp directory prior to running this playbook
-- name: Installa DataStax Agent for offline package installation using previously downloaded RPM file
-  shell: |
-    rpm -i "{{ dse_download_local_path }}/datastax-agent-{{ opscenter.active_version }}-1.noarch.rpm"
-  args:
-    warn: false
-  when: dse_install_via == 'offline'
+#- name: Installa DataStax Agent for offline package installation using previously downloaded RPM file
+  #shell: |
+    #rpm -i "{{ dse_download_local_path }}/datastax-agent-{{ opscenter.active_version }}-1.noarch.rpm"
+  #args:
+    #warn: false
+  #when: dse_install_via == 'offline'
 
 - name: create some directories - package install
   file: path={{item}} state=directory owner={{ dse_service_account_user }} group={{ dse_service_account_group }} mode="0755"
@@ -39,7 +39,7 @@
 
 - name: Template address.yaml
   template:
-    src: "templates/{{ opscenter.active_version }}/address.yaml.j2"
+    src: "templates/{{ agent.active_version }}/address.yaml.j2"
     dest: "{{ dse_agent_conf_directory }}/address.yaml"
     owner: "{{ dse_service_account_user }}"
     group: "{{ dse_service_account_group }}"

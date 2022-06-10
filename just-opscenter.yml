@@ -1,0 +1,7 @@
+# Download and configure OpsCenter
+- hosts: opscenter
+  remote_user: "{{creds.remote_user}}"
+  become: true
+  roles:
+  - opscenter-prep
+  - opscenter-configure
