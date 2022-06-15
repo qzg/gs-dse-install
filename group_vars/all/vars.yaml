@@ -47,5 +47,5 @@ opscenter:
 
 java:
   version: 8
-  max_heap_size: 2G
-  heap_newsize: 300M
+  max_heap_size: 31G
+  heap_newsize: 8G 
