@@ -17,7 +17,7 @@
 - name: Delete DSE and Agent data directories
   file:
     path: "{{ item }}"
-    state: removed
+    state: absent
   when: dse_install_type == 'package'
   with_items:
     - "{{ dse_hints_directory }}"
