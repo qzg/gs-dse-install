@@ -27,7 +27,7 @@
 
 - name: Configuring storage cluster - package install
   template:
-    src: "templates/{{ opscenter.active_version }}/{{ dse_cluster_name }}.conf.j2"
+    src: "templates/{{ opscenter.active_version }}/dse_cluster.conf.j2"
     dest: "{{ opscenter_clusters_directory }}/{{ dse_cluster_name }}.conf"
     owner: "{{ opscenter_service_account_user }}"
     group: "{{ opscenter_service_account_group }}"    

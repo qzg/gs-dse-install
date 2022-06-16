@@ -1,0 +1,13 @@
+# This play will stop all data nodes, agents, and delete their data directories
+#
+- hosts: opscenter
+  remote_user: "{{creds.remote_user}}"
+  become: true
+  roles:
+  - opscenter-reset
+
+- hosts: store,DC1,DC2
+  remote_user: "{{creds.remote_user}}"
+  become: true
+  roles:
+  - db-reset

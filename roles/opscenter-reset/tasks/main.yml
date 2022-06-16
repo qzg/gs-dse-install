@@ -1,0 +1,19 @@
+- name: Stop OpsCenter
+  service:
+    name: opscenterd
+    state: stopped
+  when: dse_install_type == 'package'
+
+
+- name: Delete OpsCenter data directories
+  file:
+    path: "{{ item }}"
+    state: removed
+  when: dse_install_type == 'package'
+  with_items:
+    - "{{ dse_agent_directory }}"
+    - "{{ dse_agent_conf_directory }}"
+    - "{{ dse_agent_log_directory }}"
+    - "{{ dse_agent_backup_staging_directory }}"
+    - "{{ dse_agent_backup_storage_directory }}"
+    - "{{ dse_agent_tmp_directory }}"
