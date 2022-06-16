@@ -3,11 +3,13 @@
 - hosts: opscenter
   remote_user: "{{creds.remote_user}}"
   become: true
+  ignore_errors: yes
   roles:
   - opscenter-reset
 
-- hosts: store,DC1,DC2
+- hosts: storeseeds,storenonseeds,DC1,DC2
   remote_user: "{{creds.remote_user}}"
   become: true
+  ignore_errors: yes
   roles:
   - db-reset
