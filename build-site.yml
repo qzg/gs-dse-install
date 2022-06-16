@@ -50,7 +50,7 @@
 - hosts: store,DC1,DC2
   remote_user: "{{creds.remote_user}}"
   become: true
-  serial: 1
+  #serial: 1
   roles:
   - agent-configure
   - rolling-restart
