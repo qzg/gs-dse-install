@@ -1,0 +1,19 @@
+- name: Stop DSE
+  shell: |
+    sudo service dse stop
+  args:
+    warn: false
+  when: dse_install_type == 'package'
+
+
+- name: Delete data directories
+  file:
+    path: "{{ item }}"
+    state: removed
+  when: dse_install_type == 'package'
+  with_items:
+    - "{{ dse_hints_directory }}"
+    - "{{ dse_data_file_directories }}"
+    - "{{ dse_commitlog_directory }}"
+    - "{{ dse_saved_caches_directory }}"
+    - "{{ dse_solr_data_directory }}"

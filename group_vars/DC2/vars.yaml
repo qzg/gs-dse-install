@@ -51,7 +51,7 @@ dse_alwayson_sql_options_enabled: true
 
 dse_graph_enabled: 0
 dse_solr_enabled: 0
-dse_spark_enabled: 1
+dse_spark_enabled: 0
 
 #jvm-[client|server][8|11].options
 dse_xmx: 31G
