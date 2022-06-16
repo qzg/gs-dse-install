@@ -5,6 +5,14 @@
   when: dse_install_type == 'package'
 
 
+- name: Uninstall DataStax OpsCenter for package install
+  yum:
+    name: "opscenter"
+    enablerepo: opscenter
+    state: absent
+  when: dse_install_type == 'package'
+
+
 - name: Delete OpsCenter data directories
   file:
     path: "{{ item }}"

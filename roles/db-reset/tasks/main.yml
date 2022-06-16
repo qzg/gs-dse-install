@@ -14,6 +14,21 @@
   when: dse_install_type == 'package'
 
 
+- name: Uninstall DataStax Enterprise
+  yum:
+    name: "dse-full"
+    enablerepo: datastax
+    state: absent
+  when: dse_install_via == 'online'
+
+
+- name: Uninstall DataStax Agent
+  yum:
+    name: "datastax-agent"
+    enablerepo: opscenter
+    state: absent
+
+
 - name: Delete DSE and Agent data directories
   file:
     path: "{{ item }}"
