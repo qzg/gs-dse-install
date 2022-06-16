@@ -1,8 +1,11 @@
 - name: Restart DSE
-  shell: |
-    sudo service dse restart
-  args:
-    warn: false
+  service:
+    name: dse
+    state: restarted
+  #shell: |
+    #sudo service dse restart
+  #args:
+    #warn: false
   when: dse_install_type == 'package'
 
 - name: Wait for DSE service to start
