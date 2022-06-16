@@ -1,10 +1,7 @@
 # Package installation related steps
 
 - name: restart-opscenter-package
-  #service: name=opscenterd enabled=yes state=restarted
-  # serial: 1
-  shell: |
-    sudo service opscenterd restart
-  args:
-    warn: false
+  service:
+    name: opscenterd
+    state: restarted
   when: dse_install_type == 'package'
