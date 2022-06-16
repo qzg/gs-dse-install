@@ -16,7 +16,7 @@
 
 - name: Uninstall DataStax Enterprise
   yum:
-    name: "dse-full"
+    name: ["dse-full", "dse", "dse-libgraph","dse-libcassandra","dse-libhadoop2-client","dse-libsolr","dse-libtomcat","dse-liblog4j","dse-libspark"]
     enablerepo: datastax
     state: absent
   when: dse_install_via == 'online'
