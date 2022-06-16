@@ -20,21 +20,22 @@ dse_download_username:
 dse_download_password:
 dse_download_local_path: /tmp
 
-dse_version: 6.8.23
+dse_version: 6.8.24
 
 #cassandra-rackdc.properties
 dse_datacenter: dc1
 
 #cassandra.yaml
-dse_cluster_name: OnionDSEDev_Storage_Cluster
+dse_cluster_name: GSDSEDev_Storage_Cluster
 dse_num_tokens: 8
-dse_allocate_tokens_for_local_replication_factor: 3
-dse_hints_directory: /var/lib/cassandra/hints
-dse_data_file_directories: /var/lib/cassandra/data
-dse_commitlog_directory: /var/lib/cassandra/commitlog
-dse_cdc_raw_directory: /var/lib/cassandra/cdc_raw
-dse_saved_caches_directory: /var/lib/cassandra/saved_caches
-dse_metadata_directory: /var/lib/cassandra/metadata
+dse_allocate_tokens_for_local_replication_factor: 5
+cassandra_directory: /var/lib/cassandra
+dse_hints_directory: "{{cassandra_directory}}/hints"
+dse_data_file_directories: "{{cassandra_directory}}/data"
+dse_commitlog_directory: "{{cassandra_directory}}/commitlog"
+dse_cdc_raw_directory: "{{cassandra_directory}}/cdc_raw"
+dse_saved_caches_directory: "{{cassandra_directory}}/saved_caches"
+dse_metadata_directory: "{{cassandra_directory}}/metadata"
 dse_seeds: "{{ groups['storeseeds'] | join(',') }}"
 dse_listen_address: "{{ ansible_default_ipv4['address'] }}"
 dse_native_transport_address: "{{ ansible_default_ipv4['address'] }}"

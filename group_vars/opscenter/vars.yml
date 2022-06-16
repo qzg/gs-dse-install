@@ -13,4 +13,4 @@ opscenter_clusters_directory: "{{ opscenter_install_directory }}/clusters"
 opscenter_failover_directory: "{{ opscenter_lib_directory }}/failover"
 opscenter_primary_location_file: "{{ opscenter_failover_directory }}/primary_opscenter_location"
 
-dse_cluster_name: "OnionDSEDev"
+dse_cluster_name: "GSDSEDev"
