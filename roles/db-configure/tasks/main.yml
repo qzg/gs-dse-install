@@ -15,7 +15,7 @@
     group: "{{ dse_service_account_group }}"
   when:
     - dse_install_type == 'package'
-    - dse_spark_enabled == '0'
+    #- dse_spark_enabled == '0'
 
 - name: Template dse.yaml for C* + Analytics workload with AOSS
   template:
